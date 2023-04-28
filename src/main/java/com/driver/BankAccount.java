@@ -44,7 +44,7 @@ public class BankAccount {
         //If it is not possible, throw "Account Number can not be generated" exception
 
         if (sum < 0 || sum > digits * 9) {
-            throw Exception("Account Number can not be generated");
+            throw new Exception("Account Number can not be generated");
         }
 
         String acNo = "";
@@ -52,7 +52,7 @@ public class BankAccount {
         int n;
         int remainingSum = sum;
         for(int i = 0; i < digits; i++){
-            int max = min(remainingSum+1, 10);
+            int max = Math.min(remainingSum+1, 10);
             n = rand.nextInt(max);
             acNo += String.valueOf(n);
             remainingSum -= n;
