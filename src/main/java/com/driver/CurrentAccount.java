@@ -63,7 +63,12 @@ public class CurrentAccount extends BankAccount {
     private void getFrequencyMap(int size, HashMap<Character, Integer> map) {
         for (int i = 0; i < size; i++) {
             char ch = tradeLicenseId.charAt(i);
-            map.put(ch, map.getOrDefault(ch, 0) + 1);
+            if (map.containsKey(ch)) {
+                int val = map.get(ch);
+                map.put(ch, val+1);
+            }else{
+                map.put(ch, 1);
+            }
         }
     }
 
